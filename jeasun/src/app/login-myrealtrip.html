@@ -1,0 +1,44 @@
+<main>
+  <div class="container-login">
+    <div class="login-wrapper">
+      <div class="login-sns-btn">
+        <div class="login-sns"><a href="#" class="btn-sns"><img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/fb-logo@2x-2a65bc6ab97a894a1baeca5b714f4201eb991cfc6d955ef657f86de8e56f89d5.png" width="18"> 페이스북으로 로그인</a></div>
+        <div class="login-sns"><a href="#" class="btn-sns"><img class="icon" src="https://d2yoing0loi5gh.cloudfront.net/assets/kitty/setting/naver-logo@2x-332865f7b796a02822378e0b61e6dcace93ae9a24abd810cd774a06b5fbcb0b5.png" width="18"> 네이버로 로그인</a></div>
+      </div>
+      <div class="login-body">
+        <form [formGroup]="userForm">
+          <fieldset class="login-form-fieldset">
+            <div class="login-userid-container">
+              <p class="login-userid-container-p">이메일*</p>
+              <input class="input-id" type="text" placeholder="이메일" formControlName="userid" required>
+              <small *ngIf="userid.errors?.required && userid.touched" class="error-msg">꼭 필요해요</small>
+            </div>
+            <div class="login-userpw-container">
+              <p class="login-userpw-container-p">비밀번호*</p>
+              <input class="input-pw" type="password" placeholder="비밀번호" formControlName="password" required>
+              <small *ngIf="userid.errors?.required && userid.touched"  class="error-msg">비밀번호를 입력하세</small>
+            </div>
+            <div class="login-footer">
+              <div class="rememberme">
+                <input type="checkbox" >
+                <label class="rememberme-ch">로그인 상태 유지</label>
+              </div>
+              <div class="find-pw">
+                <a class="find-pw" href="#">비밀번호 찾기</a>
+              </div>
+            </div>
+            <div class="submit-btn-wrapper">
+              <button class="submit-btn">이메일로 로그인</button>
+            </div>
+          </fieldset>
+        </form>
+        <div class="footer-title">
+          아직 야놀자 회원이 아니신가요?
+          <a href="#">회원가입</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<pre>userEmail:: {{userid.errors | json }}</pre>
+<pre>userPw:: {{password.value}}</pre>

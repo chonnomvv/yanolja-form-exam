@@ -1,0 +1,32 @@
+<header>
+  <nav>
+    <ul class="nav-container">
+      <li class="nav-item">뒤로가기</li>
+      <li class="nav-item">로그인</li>
+      <li class="nav-item">홈검색</li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <ul class="login-selection">
+    <li class="login-selection-item active">야놀자 로그인</li>
+    <li class="login-selection-item">간편 로그인</li>
+  </ul>
+  <form class="form-body" [formGroup]="userForm">
+    <fieldset class="form-fieldset">
+      <div class="form-input form-id">
+        <input type="text" placeholder="아이디 또는 이메일" formControlName="userid">
+        <span *ngIf="userid.errors?.required && userid.touched" class="err-msg">아이디를 입력해주세요</span>
+      </div>
+      <div class="form-input form-pw">
+        <input type="password" placeholder="비밀번호" formControlName="password">
+        <span *ngIf="password.errors?.required && password.touched" class="err-msg">비밀번호를 입력해주세요</span>
+      </div>
+    </fieldset>
+    <button class="btn-login" type="submit" [disabled]="userForm.invalid" [ngClass]="{ 'btn-active' : userForm.invlaid}">로그인</button>
+    <a class="link-reset-pw">비밀번호 재설정</a>
+    <button class="btn-signup">야놀자 회원가입</button>
+  </form>
+  <pre>{{userid.errors}}</pre>
+  <pre>{{password}}</pre>
+</main> 
